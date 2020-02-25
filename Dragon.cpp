@@ -1,7 +1,13 @@
 #include "Dragon.h"
 #include "DragonSlayer.h"
 
-//Dragon::Dragon
+Dragon::Dragon( const std::string name_  , int hitPoints_ , int armour_ ) :
+        //Base Class Character: Hitpoints, armour, attack damage
+        Character( hitPoints_, armour_, 80  ),
+        m_hitPoints ( hitPoints_ ) ,
+        m_armour ( armour_ ),
+        name (name_)
+{ }
 
 void Dragon::attack(Character &other)
 {

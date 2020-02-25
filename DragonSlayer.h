@@ -1,5 +1,5 @@
 #pragma once
-#include "DragonSlayer.h"
+#include "Character.h"
 
 struct DragonSlayer : Character
 {
@@ -13,6 +13,7 @@ public:
     std::string getStats() override;
 
     void attack(Character& other) override;
+    
 private:
     const std::string name;
 };
