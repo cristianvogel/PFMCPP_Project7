@@ -9,7 +9,8 @@
 
 struct Character
 {
-    Character(int hp, int armor_, int attackDamage_ );
+    // provide some default values on base Class constructor
+    Character(int hp = 10, int armor_ = 10, int attackDamage_ = 10 );
     virtual ~Character() { }
     
     /*
@@ -61,6 +62,8 @@ struct Character
         std::cout << std::endl;
         std::cout << std::endl;
     }
+
+
 protected:
     std::vector<std::unique_ptr<Item>> defensiveItems;
     std::vector<std::unique_ptr<Item>> helpfulItems;
