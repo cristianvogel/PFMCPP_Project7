@@ -3,6 +3,7 @@
 #include <string>
 
 struct Character;
+
 struct Item
 {
     //Destructor

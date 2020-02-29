@@ -1,11 +1,15 @@
 #include "HelpfulItem.h"
+#include "Character.h"
+#include "Utility.h"
 
-//overriding implementation for parent pure virtual function
+// implementation from overridden parent pure virtual function
 void HelpfulItem::use(Character *character)
 {
-    if (character) 
-    {
-      // const std::vector<std::unique_ptr<Item>>& helpfulItems = character->getHelpfulItems(); 
-        
+    if (character)
+    {   
+        auto& items = character->getHelpfulItems();
+        useHelpfulItem( character, &*(items.at(0)) );
+
     };
+
 }
