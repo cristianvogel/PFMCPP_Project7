@@ -9,8 +9,8 @@
 
 struct Character
 {
-    // provide some default values on base Class constructor
-    Character(int hp = 10, int armor_ = 10, int attackDamage_ = 10 );
+    
+    Character(int hp , int armor_ , int attackDamage_ );
     virtual ~Character() { }
     
     /*
