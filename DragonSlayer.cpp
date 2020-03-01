@@ -5,12 +5,10 @@
 DragonSlayer::DragonSlayer( const std::string name_  , int hitPoints_ , int armour_ ) :
         //Base Class Character: Hitpoints, armour, attack damage
         Character( hitPoints_, armour_, 4  ),
-        m_hitPoints ( hitPoints_ ) ,
-        m_armour ( armour_ ),
         name (name_)
 { }
 
-//DragonSlayer::getName
+const std::string& DragonSlayer::getName() { return name;}
 
 void DragonSlayer::attack(Character& other)
 {
@@ -33,4 +31,4 @@ void DragonSlayer::attack(Character& other)
         
 }
 
-//DragonSlayer::getStats
+std::string DragonSlayer::getStats() { return getCharacterStats(this); }

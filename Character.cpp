@@ -98,9 +98,9 @@ void Character::attackInternal(Character& other)
             c) the initial value of your stats is updated to reflect this boosted stat for the next time you defeat another character.
       */
         
-        initialHitPoints.reset();
-        initialArmorLevel.reset();
-        initialAttackDamage.reset();
+        initialHitPoints.reset( new int(hitPoints) );
+        initialArmorLevel.reset( new int( armor) );
+        initialAttackDamage.reset( new int( attackDamage) );
         boostArmor(getArmorLevel() * 0.1);
         boostHitPoints(getHP() * 0.1);
         boostAttackDamage(getAttackDamage() * 0.1);

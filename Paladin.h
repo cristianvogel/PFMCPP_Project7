@@ -4,13 +4,11 @@
 struct Paladin : Character
 {
 public:
-    int m_hitPoints;
-    int m_armour;
     
     Paladin( const std::string name_  = "Default Paladin", int hp_ = 5 , int armour_ = 2);
 
-    std::string& getName();
-    std::string getStats();
+    const std::string& getName() override;
+    std::string getStats() override;
 
 private:
     const std::string name;

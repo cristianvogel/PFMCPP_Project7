@@ -6,10 +6,5 @@
 void HelpfulItem::use(Character *character)
 {
     if (character)
-    {   
-        auto& items = character->getHelpfulItems();
-        useHelpfulItem( character, &*(items.at(0)) );
-
-    };
-
+            useHelpfulItem( character, this );
 }
