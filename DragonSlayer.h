@@ -6,9 +6,9 @@ struct DragonSlayer : Character
 {
 public:
     
-    DragonSlayer( const std::string name_  = "Default DragonSlayer", int hp_ = 8 , int armour_ = 5);
+    DragonSlayer( const std::string name_ , int hp_ , int armour_ );
 
-   std::unique_ptr<AttackItem> attackItem{ new AttackItem() };
+    std::unique_ptr<AttackItem> attackItem{ new AttackItem() };
    
     const std::string& getName() override;
     std::string getStats() override;

@@ -6,7 +6,10 @@ DragonSlayer::DragonSlayer( const std::string name_  , int hitPoints_ , int armo
         //Base Class Character: Hitpoints, armour, attack damage
         Character( hitPoints_, armour_, 4  ),
         name (name_)
-{ }
+{ 
+    defensiveItems = makeDefensiveItems((std::rand()%10)+1);
+    helpfulItems = makeHelpfulItems((std::rand()%10)+1);
+}
 
 const std::string& DragonSlayer::getName() { return name;}
 
@@ -19,7 +22,7 @@ void DragonSlayer::attack(Character& other)
         //DragonSlayers get a 10x boost when attacking dragons, from their attack item.
         //so they should USE their attack item before attacking the dragon... 
         //
-        useAttackItem( this, &*(this->attackItem) );
+        attackItem->use ( this );
 
         while( dragon->getHP() > 0 )
         {

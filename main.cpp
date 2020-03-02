@@ -60,23 +60,14 @@ it's very easy to mess this task up.
 //==========================================================
 int main()
 {
+    std::srand(137); // PRNG seed
+    
                       //name, hit points, armor. 
     Dwarf dwarf { "Maldin the Dwarf", 3, 1 };
     Paladin paladin { "Warrick the Paladin", 5, 2 };
     Dragon dragon { "Garry The Dragon", 200, 50 };
     DragonSlayer dragonSlayer { "Virgil the Dragon Slayer", 8, 5 };
     
-    std::srand(137); 
-    std::vector<Character*> charactersWithItems { &dwarf, &paladin, &dragonSlayer };
-    for( auto* character : charactersWithItems )
-    {
-        if (character) 
-        {
-            makeDefensiveItems(std::rand()%10);
-            makeHelpfulItems(std::rand()%10);
-        };
-    }
-
     std::cout << "\nstart of battle" << std::endl;
 
     paladin.defend();

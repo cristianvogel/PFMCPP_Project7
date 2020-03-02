@@ -5,7 +5,7 @@ struct Dragon : Character
 {
 public:
 
-    Dragon( const std::string name_  = "Default Dragon", int hp_ = 200 , int armour_ = 50);
+    Dragon( const std::string name_ , int hp_  , int armour_ );
 
     const std::string& getName() override;
     std::string getStats() override;
