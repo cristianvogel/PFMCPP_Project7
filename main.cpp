@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+
 /*
 Project 7: Part 1/1
  video: Chapter 4 Part 2 
@@ -53,10 +54,14 @@ it's very easy to mess this task up.
 #include "Paladin.h"
 #include "Dragon.h"
 #include "DragonSlayer.h"
+#include "Utility.h"
+
 //==========================================================
 //==========================================================
 int main()
 {
+    std::srand(137); // PRNG seed
+    
                       //name, hit points, armor. 
     Dwarf dwarf { "Maldin the Dwarf", 3, 1 };
     Paladin paladin { "Warrick the Paladin", 5, 2 };

@@ -9,7 +9,8 @@
 
 struct Character
 {
-    Character(int hp, int armor_, int attackDamage_ );
+    
+    Character(int hp , int armor_ , int attackDamage_ );
     virtual ~Character() { }
     
     /*
@@ -26,6 +27,8 @@ struct Character
     void help( Character& other );
     
     int takeDamage(int damage);
+
+    void printStats();
     
     int getHP() const { return hitPoints; }
     int getArmorLevel() const { return armor; }
@@ -53,14 +56,7 @@ struct Character
         std::cout << getName() << "'s attack damage level has been boosted to " << attackDamage << std::endl;
     }
 
-    void printStats()
-    {
-        std::cout << getName() << "'s stats: " << std::endl;
-        std::cout << getStats(); //make your getStats() use a function from the Utility.h
-        
-        std::cout << std::endl;
-        std::cout << std::endl;
-    }
+
 protected:
     std::vector<std::unique_ptr<Item>> defensiveItems;
     std::vector<std::unique_ptr<Item>> helpfulItems;
