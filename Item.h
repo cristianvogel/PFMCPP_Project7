@@ -12,11 +12,6 @@ struct Item
     //pure virtual function
     virtual void use(Character*) = 0;
 
-    //Constructor
-  //  MOve implementations to cpp file. 
-  
-    //YOU STILL NEED THE DECLARATIONS
-
     Item(const std::string& name_, int effect );
 
     const std::string& getName();
