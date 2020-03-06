@@ -51,16 +51,16 @@ void useDefensiveItem(Character* character, Item& item)
     //dwarves, paladins, and DragonSlayers get extra boosts from defensive item.
     if( auto* maldin = dynamic_cast<Dwarf*>(character) )
     {
-        maldin->boostArmor( item.getBoost() * 1.1 );
+        maldin->boostArmor( static_cast<int>(item.getBoost() * 1.1) );
     }
     else if( auto* warwick = dynamic_cast<Paladin*>(character) )
     {
         //same with paladins
-        warwick->boostArmor( item.getBoost() * 1.3 );
+        warwick->boostArmor( static_cast<int>(item.getBoost() * 1.3) );
     }
     else if( auto* virgil = dynamic_cast<DragonSlayer*>(character))
     {
-        virgil->boostArmor( item.getBoost() * 1.5 );
+        virgil->boostArmor( static_cast<int>(item.getBoost() * 1.5) );
     }
     else if( auto* garry = dynamic_cast<Dragon*>(character) )
     {
@@ -75,11 +75,11 @@ void useHelpfulItem(Character* character, Item* item)
     }
     else if( auto* warwick = dynamic_cast<Paladin*>(character) )
     {
-        warwick->boostHitPoints(item->getBoost() * 1.5);
+        warwick->boostHitPoints( static_cast<int>(item-> getBoost() * 1.5) ) ;
     }
     else if( auto* virgil = dynamic_cast<DragonSlayer*>(character))
     {
-        virgil->boostHitPoints(item->getBoost() * 1.25);
+        virgil->boostHitPoints( static_cast<int>(item->getBoost() * 1.25) );
     }
     else if( auto* garry = dynamic_cast<Dragon*>(character) )
     {
@@ -90,11 +90,11 @@ void useAttackItem(Character* character, Item* item)
 {
     if( auto* maldin = dynamic_cast<Dwarf*>(character) )
     {
-        maldin->boostAttackDamage(item->getBoost() * 1.5);
+        maldin->boostAttackDamage( static_cast<int>(item->getBoost() * 1.5) );
     }
     else if( auto* warwick = dynamic_cast<Paladin*>(character) )
     {
-        warwick->boostAttackDamage(item->getBoost() * 1.33);
+        warwick->boostAttackDamage( static_cast<int>(item->getBoost() * 1.33) );
     }
     else if( auto* virgil = dynamic_cast<DragonSlayer*>(character))
     {

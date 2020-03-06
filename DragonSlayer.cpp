@@ -11,8 +11,6 @@ DragonSlayer::DragonSlayer( const std::string name_  , int hitPoints_ , int armo
     helpfulItems = makeHelpfulItems((std::rand()%10)+1);
 }
 
-const std::string& DragonSlayer::getName() { return name;}
-
 void DragonSlayer::attack(Character& other)
 {
     std::cout << name << " is attacking " << other.getName() << " !!" << std::endl;
@@ -30,8 +28,9 @@ void DragonSlayer::attack(Character& other)
         }
     }
         
-    Character::attack(other);
-        
+    Character::attack(other); 
 }
+
+const std::string& DragonSlayer::getName() { return name;}
 
 std::string DragonSlayer::getStats() { return getCharacterStats(this); }

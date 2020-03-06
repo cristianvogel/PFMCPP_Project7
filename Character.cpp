@@ -93,41 +93,34 @@ void Character::attackInternal(Character& other)
     {
         /*
         When you defeat another Character: 
-            a) your stats are restored to their initial value
+            a) your stats are restored to their initial value if they are lower than it.
             b) your stats are boosted 10%
             c) the initial value of your stats is updated to reflect this boosted stat for the next time you defeat another character.
       */
         if ( initialArmorLevel && initialHitPoints && initialAttackDamage ) 
         {
-            initialHitPoints.reset( new int( *initialHitPoints ) );
-            initialArmorLevel.reset( new int( *initialArmorLevel) );
-            initialAttackDamage.reset( new int( *initialAttackDamage ) );
-            boostArmor(getArmorLevel() * 0.1);
-            boostHitPoints(getHP() * 0.1);
-            boostAttackDamage(getAttackDamage() * 0.1);
-            *initialArmorLevel = getArmorLevel();
-            *initialHitPoints = getHP();
-            *initialAttackDamage = getAttackDamage();
+            double boostFactor = 1.1;
+        
+            armor = static_cast<int>( armor < *initialArmorLevel ? *initialArmorLevel * boostFactor : armor * boostFactor );
+            hitPoints = static_cast<int>( hitPoints < *initialHitPoints ? *initialHitPoints * boostFactor : hitPoints * boostFactor );
+            attackDamage = static_cast<int>( attackDamage < *initialAttackDamage ? *initialAttackDamage * boostFactor  : attackDamage * boostFactor );
+
+            *initialArmorLevel = armor;
+            *initialHitPoints = hitPoints;
+            *initialAttackDamage = attackDamage;
+
         }
-        //assert(false);
         std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;        
     }
 }
 
-
-//implementation in Character.h
-/*
  void Character::printStats() 
 {
     std::cout << getName() << "'s stats: " << std::endl;
-    assert(false);
-   
-   
-    std::cout << getStats(); 
-    
+    std::cout << getStats(); //make your getStats() use a function from the Utility.h
+        
     std::cout << std::endl;
     std::cout << std::endl;
 }
-*/
 
 
